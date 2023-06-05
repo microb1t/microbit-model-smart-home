@@ -11,7 +11,10 @@ This project was a lot more than I thought it was going to be. It was a five wee
 
    ### Week 1
    
-   On the first week of this project I focused on building the physical model of the house and putting the lights in. To do that, I had limited materials and the wires I chose to connect to the LEDs were alligator clips on one side and the male pin on the other so I could connect them to a breadboard. The following image was the result of Week 1.
+   On the first week of this project I focused on building the physical model of the house and putting the lights in. To do that, I had limited materials and the wires I chose to connect to the LEDs were alligator clips on one side and the male pin on the other so I could connect them to a breadboard. The following image was the result of Week 1. 
+  
+  PS: I know the picture looks like it was taken on a twice-baked potato, that's because it was. (It was taken on a chromebook)
+
   
 ![168598703737461727](https://github.com/microb1t/microbit-model-smart-home/assets/125515183/7640dbbe-2bd6-429d-8719-7a1c7ff67059)
 
