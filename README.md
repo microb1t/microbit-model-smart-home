@@ -22,5 +22,24 @@ This project was a lot more than I thought it was going to be. It was a five wee
  
  On the second week of this project I focused on adding more lights to the first floor of the house and coming up with a way to use Micro:bits to control the lights remotely. I think I should mention that I made many iterations of this code. I had to make more versions of the code for many reasons- some of which being a feature that I wanted to add, some being issues with the code itself, and some being compatibility issues with the micro:bit. There was also the occasional simple screw-up on my part, which happened more times than I want to admit.
  
- In the first iteration of my code, I focused on trying to control a servo that physically bridged a positively charged wire in order to control the lights to the house. I also tried to make this code as simple as possible, just in case something didn't work correctly. 
+ In the first iteration of my code, I focused on trying to control a servo that physically bridged a positively charged wire in order to control the lights to the house. I also tried to make this code as simple as possible, just in case something didn't work correctly. So I started my code off by setting the radio channel and defining and setting the "angle" variable to measure the servo angle. By the way, this code is in python.
  
+      angle = 0
+      radio.set_group(1)
+      angle = 90 
+  
+Then, I set what would happen if I pressed the A and B buttons. I wanted it so if I pressed the A button, it would decrease the servo angle by 10, but not go past 0 so the displayed angle would stay accurate to the actual servo angle.
+
+      def on_button_pressed_a():
+         global angle
+         angle = max(0, angle - 10)
+         radio.send_number(angle)
+         led.stop_animation()
+      input.on_button_pressed(Button.A, on_button_pressed_a)
+      
+      def on_button_pressed_b():
+         global angle
+         angle = min(180, angle + 10)
+         radio.send_number(angle)
+         led.stop_animation()
+      input.on_button_pressed(Button.B, on_button_pressed_b)
