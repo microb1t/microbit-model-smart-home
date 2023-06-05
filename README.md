@@ -17,5 +17,5 @@ This project was a lot more than I thought it was going to be. It was a five wee
  
  ### Week 2
  
- On the second week of this project I focused on adding more lights to the first floor of the house and coming up with a way to use Micro:bits to control the lights remotely. I think I should mention that I made many iterations of this code, 
+ On the second week of this project I focused on adding more lights to the first floor of the house and coming up with a way to use Micro:bits to control the lights remotely. I think I should mention that I made many iterations of this code. I had to make more versions of the code for many reasons- some of which being a feature that I wanted to add, some being issues with the code itself, and some being compatibility issues with the micro:bit. There was also the occasional simple screw-up on my part, which happened more times than I want to admit.
  
