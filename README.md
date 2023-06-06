@@ -13,7 +13,7 @@ This project was a lot more than I thought it was going to be. It was a five wee
    
    On the first week of this project I focused on building the physical model of the house and putting the lights in. To do that, I had limited materials and the wires I chose to connect to the LEDs were alligator clips on one side and the male pin on the other so I could connect them to a breadboard. The following image was the result of Week 1. 
   
-  PS: I know the picture looks like it was taken on a 572 year old potato that's been left out in a field for 39 years, that's because it was. (It was taken on a chromebook)
+  PS: I know the picture looks like it was taken on a potato that's been left out in a field for 39 years, that's because it was. (It was taken on a chromebook)
 
   
 ![168598703737461727](https://github.com/microb1t/microbit-model-smart-home/assets/125515183/7640dbbe-2bd6-429d-8719-7a1c7ff67059)
@@ -43,3 +43,41 @@ Then, I set what would happen if I pressed the A and B buttons. I wanted it so i
          radio.send_number(angle)
          led.stop_animation()
       input.on_button_pressed(Button.B, on_button_pressed_b)
+      
+Then, I added a forever loop that would show the servo angle on the microbit LED array.
+      
+      def on_forever():
+         basic.show_number(angle)
+      basic.forever(on_forever)
+
+### Code for the 'receiving' Micro:bit
+
+For the other microbit that would be receiving the signal containing the angle change, I used this code:
+
+      # When the microbit receives a radio signal with a number,set the angle variable to that received value and write the servo on pin 0 to the angle variable.
+      def on_received_number(receivedNumber):
+         global angle
+         angle = receivedNumber
+         pins.servo_write_pin(AnalogPin.P0, angle)
+         led.stop_animation()
+      radio.on_received_number(on_received_number)
+      
+      # Add a variable 'angle' and set it to 90. Set radio group to 1 to match the controller and write the servo to the angle variable to start.
+      
+      angle = 0
+      radio.set_group(1)
+      angle = 90
+      pins.servo_write_pin(AnalogPin.P0, angle)
+
+      # Keep displaying the angle variable on the screen.
+
+      def on_forever():
+         basic.show_number(angle)
+      basic.forever(on_forever)
+      
+But this was only the first version of this code. As I changed things, I had to change the code. I will have all of the code in the files section.
+      
+
+
+      
+      
