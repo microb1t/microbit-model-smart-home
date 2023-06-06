@@ -76,7 +76,10 @@ For the other microbit that would be receiving the signal containing the angle c
       basic.forever(on_forever)
       
 But this was only the first version of this code. As I changed things, I had to change the code. I will have all of the code in the files section.
-      
+           
+### Week 3
+
+On week three, we only had Monday, Tuesday, Wednesday and Thursday because of a no-school day on Friday. My main goal for week three was to continue making and revising the code, and to put the actual 'smart' features in the house. Week 3 was one of the worst weeks for me, not because I didn't get a lot done- because I did- but because of a **major** compatibility issue with the servo motors and the micro:bits. It turns out some of my code wasn't compatible with the micro:bit, but the problem was there was no way to find out which part of the code was the problem. So unfortunately, I had to redo the _entire_ controller code.
 
 
       
