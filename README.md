@@ -81,6 +81,7 @@ But this was only the first version of this code. As I changed things, I had to 
 
 On week three, we only had Monday, Tuesday, Wednesday and Thursday because of a no-school day on Friday. My main goal for week three was to continue making and revising the code, and to put the actual 'smart' features in the house. Week 3 was one of the worst weeks for me, not because I didn't get a lot done- because I did- but because of a **major** compatibility issue with the servo motors and the micro:bits. It turns out some of my code wasn't compatible with the micro:bit, but the problem was there was no way to find out which part of the code was the problem. So unfortunately, I had to redo the _entire_ controller code.
 
+The end result after I completely changed everything was, instead of using two micro:bits, it used three. One for the controller, one for the power controlling servo, and the other for a new idea that I decided to add to the mix. I wanted to add a remote controlled window shade, for no particular reason besides being ahead of schedule and having the time to do so. This was one of the main reasons that I had to change the code. The reason I needed the third micro:bit was because they only have **one** 3.3 volt pin, and combined with the servos and the lights drawing power, it was too much for the single micro:bit, so I needed a third one for the second servo.
 
       
       
