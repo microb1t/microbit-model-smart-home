@@ -231,6 +231,11 @@ basic.forever(on_forever)
 ```
       
 ### Week Four
+On week four, we also only had four days because of Memorial Day. I mostly focused on cleaning up the house and making it look better, and then having to change out the entire window servo because it simply stopped working. I tried everything trying to get it to work, but it was just not going to work. So I changed it out. I also made a to-do list for what I still have to do. Here are the pictures I took at the end of week four.
 
 ![image](https://github.com/microb1t/microbit-model-smart-home/assets/125515183/3b284204-17a9-4c6e-b00a-5dcb905c875d)
+
+![image](https://github.com/microb1t/microbit-model-smart-home/assets/125515183/0a0206c5-641b-4e45-bc01-8461fd6d9579)
+
+The picture quality is so bad, I'm going to add a section where I'll add some new, better pictures that aren't taken on a chromebook in a hurry. 
 
