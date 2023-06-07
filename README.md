@@ -184,7 +184,50 @@ You can decrease or increase the value in the basic.pause, I set it to 750ms bec
 
 In the code above, you might see where it says 'while True:', but it doesn't have anything that can switch between true or false. I did this because in the coding software I used, you can't put a 'forever' loop inside of another loop, and the 'run in background' is a 'loop' according to the software. So anyways, I just used that to make a makeshift forever loop. It works perfectly for me.
       
-      
+Now for the receiving end, the code for each of the micro:bits that control their designated servo is basically the same except for a few things:
+1. The radio group they are assigned to (the power servo is assigned to group 1, and the window servo is assigned to group 2)
+2. The prefix before the number being shown (Yes, the micro:bits on the house each show their servo's current angle)
 
+The power servo receiver code looks like this:
+
+```py
+def on_received_value(name, value):
+    global angle
+    if name == "power":
+        angle = value
+        pins.servo_write_pin(AnalogPin.P0, angle)
+        led.stop_animation()
+radio.on_received_value(on_received_value)
+
+angle = 0
+radio.set_group(1)
+angle = 90
+pins.servo_write_pin(AnalogPin.P0, angle)
+
+def on_forever():
+    basic.show_string("p" + str(angle))
+basic.forever(on_forever)
+```
+
+And the window servo receiver code looks like this:
+      
+```py
+def on_received_value(name, value):
+    global angle
+    if name == "window":
+        angle = value
+        pins.servo_write_pin(AnalogPin.P0, angle)
+        led.stop_animation()
+radio.on_received_value(on_received_value)
+
+angle = 0
+radio.set_group(2)
+angle = 90
+pins.servo_write_pin(AnalogPin.P0, angle)
+
+def on_forever():
+    basic.show_string("w" + str(angle))
+basic.forever(on_forever)
+```
       
       
