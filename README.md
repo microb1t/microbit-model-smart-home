@@ -24,36 +24,45 @@ This project was a lot more than I thought it was going to be. It was a five wee
  
  In the first iteration of my code, I focused on trying to control a servo that physically bridged a positively charged wire in order to control the lights to the house. I also tried to make this code as simple as possible, just in case something didn't work correctly. So I started my code off by setting the radio channel and defining and setting the "angle" variable to measure the servo angle. By the way, this code is in python.
  
-      angle = 0
-      radio.set_group(1)
-      angle = 90 
+```py
+angle = 0
+radio.set_group(1)
+angle = 90
+```
   
 Then, I set what would happen if I pressed the A and B buttons. I wanted it so if I pressed the A button, it would decrease the servo angle by 10, but not go past 0 so the displayed angle would stay accurate to the actual servo angle.
 
+```py
       def on_button_pressed_a():
          global angle
          angle = max(0, angle - 10)
          radio.send_number(angle)
          led.stop_animation()
       input.on_button_pressed(Button.A, on_button_pressed_a)
-      
+ ```
+ 
+```py
       def on_button_pressed_b():
          global angle
          angle = min(180, angle + 10)
          radio.send_number(angle)
          led.stop_animation()
       input.on_button_pressed(Button.B, on_button_pressed_b)
-      
+```     
+     
 Then, I added a forever loop that would show the servo angle on the microbit LED array.
       
-      def on_forever():
+```py    
+    def on_forever():
          basic.show_number(angle)
       basic.forever(on_forever)
+```
 
 ### Code for the 'receiving' Micro:bit
 
 For the other microbit that would be receiving the signal containing the angle change, I used this code:
 
+```py
       # When the microbit receives a radio signal with a number,set the angle variable to that received value and write the servo on pin 0 to the angle variable.
       def on_received_number(receivedNumber):
          global angle
@@ -74,7 +83,8 @@ For the other microbit that would be receiving the signal containing the angle c
       def on_forever():
          basic.show_number(angle)
       basic.forever(on_forever)
-      
+```   
+   
 But this was only the first version of this code. As I changed things, I had to change the code. I will have all of the code in the files section.
            
 ### Week 3
@@ -93,6 +103,7 @@ For the code, I had to have:
 
 To be able to control both of the servos from one controller, I had to have an angle variable for both of the servos. So I started off by defining those, as well as setting the starting radio channel and the variable to tell which servo is being controlled.
 
+```py
       radiochannel = 0
       windowangle = 0
       angle = 0
@@ -100,9 +111,11 @@ To be able to control both of the servos from one controller, I had to have an a
       angle = 90
       windowangle = 90
       radiochannel = 1
-     
+```
+
 Then I wanted to figure out a way to change between controlling the power and window servos. So I decided to make pressing the A and B buttons at the same time the thing that switches the servo control.
 
+```py
       def on_button_pressed_ab():
          global radiochannel
          if radiochannel == 1:
@@ -111,9 +124,11 @@ Then I wanted to figure out a way to change between controlling the power and wi
             if radiochannel == 2:
                radiochannel = 1
       input.on_button_pressed(Button.AB, on_button_pressed_ab)
-      
+ ```
+ 
 With that, the other things I had to figure out were a way to monitor both of the servos, a way to control them, and a way to be able to tell which is which. So I figured I might as well figure out how to control them. I wanted pressing the A button to decrease the servo angle by 10, and pressing the B button to increase the servo angle by 10.
 
+```py
       def on_button_pressed_a():
          global angle, windowangle
          if radiochannel == 1:
@@ -125,9 +140,11 @@ With that, the other things I had to figure out were a way to monitor both of th
             radio.send_value("window", windowangle)
             led.stop_animation()
       input.on_button_pressed(Button.A, on_button_pressed_a)
-      
+```
+
 Now for the B button:
 
+```py
       def on_button_pressed_b():
          global angle, windowangle
          if radiochannel == 1:
@@ -139,25 +156,31 @@ Now for the B button:
             radio.send_value("window", windowangle)
             led.stop_animation()
       input.on_button_pressed(Button.B, on_button_pressed_b)
-      
+```     
+     
 Now I only had to figure out how to monitor the servos and tell which one is being monitored since the micro:bit can only display one string at a time.
 
+```py
       def on_forever():
          if radiochannel == 1:
             basic.show_string("p" + ("" + str(angle)))
          elif radiochannel == 2:
             basic.show_string("w" + ("" + str(windowangle)))
       basic.forever(on_forever)
-      
+```
+
 That takes care of both of those issues, because the 'p' before the angle designates that it's showing the angle of the power servo, and the 'w' before the window angle designates that it's showing the angle of the window servo.
 
 Now maybe you've noticed something wrong at this point, and don't worry, I'm going to adress it. The problem I'm referring to is the fact that I have the variable 'radiochannel', which isn't connected to the command 'radio.set_group()' in any way. So I can control the variable, but I can't switch between radio channels yet. To adress this, I used the 'run in background' feature to solve this problem.
 
+```py
       def on_in_background(): 
          while True:
             radio.set_group(radiochannel)
             basic.pause(750)
-            # You can decrease or increase the value in the basic.pause, I set it to 750 ms because I don't want to overwhelm the micro:bit and have it constantly               re-setting the radio group when it might not need to.
+      control.in_background(on_in_background)
+```
+You can decrease or increase the value in the basic.pause, I set it to 750ms because I don't want to overwhelm the micro:bit and have it constantly re-setting the radio group when it might not need to.
 
 In the code above, you might see where it says 'while True:', but it doesn't have anything that can switch between true or false. I did this because in the coding software I used, you can't put a 'forever' loop inside of another loop, and the 'run in background' is a 'loop' according to the software. So anyways, I just used that to make a makeshift forever loop. It works perfectly for me.
       
