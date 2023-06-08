@@ -238,4 +238,8 @@ On week four, we also only had four days because of Memorial Day. I mostly focus
 ![image](https://github.com/microb1t/microbit-model-smart-home/assets/125515183/0a0206c5-641b-4e45-bc01-8461fd6d9579)
 
 The picture quality is so bad, I'm going to add a section where I'll add some new, better pictures that aren't taken on a chromebook in a hurry. 
+Week four was a pretty uneventful week, because not much happened. I did learn how to properly connect the servos so they would work at least _slightly_ better.
+
+### Week Five
+On week five, I've been working on making this page. I've been making it for the entire length of my first period (the class that I'm doing this project for), and basically whenever else I can work on it during school.
 
