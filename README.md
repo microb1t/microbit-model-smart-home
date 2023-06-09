@@ -241,5 +241,27 @@ The picture quality is so bad, I'm going to add a section where I'll add some ne
 Week four was a pretty uneventful week, because not much happened. I did learn how to properly connect the servos so they would work at least _slightly_ better.
 
 ### Week Five
-On week five, I've been working on making this page. I've been making it for the entire length of my first period (the class that I'm doing this project for), and basically whenever else I can work on it during school.
+On week five, I've been working on making this page. I've been making it for the entire length of my first period (the class that I'm doing this project for), and basically whenever else I can work on it during school. I took the pictures for the project demonstration, which can be found in the releases section, or at this link:
+
+https://github.com/microb1t/microbit-model-smart-home/releases/tag/demonstration
+
+## Overall
+
+Overall, I'm pretty happy with how this turned out, even though it took quite a while to figure out some relatively simple problems. But, I think it turned out great and I feel it's a great demonstration of how the micro:bits can be used to do **so** many different things, and this is just one example of that. 
+
+## Links
+
+Microsoft MakeCode: https://makecode.microbit.org
+
+Second Version of My Code: https://github.com/microb1t/microbit-model-smart-home/releases/tag/v2
+
+Third Version of My Code: https://github.com/microb1t/microbit-model-smart-home/releases/tag/v3
+
+Fourth Version of My Code: https://github.com/microb1t/microbit-model-smart-home/releases/tag/v4
+
+Fifth Version of My Code: https://github.com/microb1t/microbit-model-smart-home/releases/tag/v5
+
+Version 5.1 of My Code: https://github.com/microb1t/microbit-model-smart-home/releases/tag/v5.1-beta
+
+Project Demonstration and Picture Collection: https://github.com/microb1t/microbit-model-smart-home/releases/tag/demonstration
 
